@@ -1,0 +1,9 @@
+SELECT
+    e.contract_type,
+    COUNT(e.id) AS employee_count
+FROM
+    Employee e
+GROUP BY
+    e.contract_type
+ORDER BY
+    employee_count DESC;

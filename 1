@@ -1,0 +1,22 @@
+SELECT
+    e.id,
+    e.first_name,
+    e.last_name
+FROM
+    Employee e
+WHERE
+    e.team_id IS NULL; -- Si l'attribut de jointure est dans Employee (le plus probable)
+-- OU, si la modélisation implique un champ NULL dans Team (moins probable avec le MCD)
+/*
+SELECT
+    e.id,
+    e.first_name,
+    e.last_name
+FROM
+    Employee e
+LEFT JOIN
+    Team t ON e.team_id = t.id
+WHERE
+    t.id IS NULL;
+*/
+

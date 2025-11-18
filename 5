@@ -1,0 +1,9 @@
+SELECT
+    COUNT(DISTINCT e.id) AS employees_on_leave_today
+FROM
+    Employee e
+JOIN
+    Leave l ON e.id = l.employee_id
+WHERE
+    DATE('now') BETWEEN l.start_date AND l.end_date;
+    

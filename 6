@@ -1,0 +1,14 @@
+SELECT
+    e.id,
+    e.first_name,
+    e.last_name,
+    t.name AS team_name
+FROM
+    Employee e
+JOIN
+    Leave l ON e.id = l.employee_id
+LEFT JOIN
+    Team t ON e.team_id = t.id
+WHERE
+    DATE('now') BETWEEN l.start_date AND l.end_date;
+    -- Utiliser la fonction de date appropriée pour "aujourd'hui" (ex: CURDATE(), CURRENT_DATE, DATE('now')).

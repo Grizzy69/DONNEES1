@@ -1,0 +1,16 @@
+
+SELECT
+    l.id AS leave_id,
+    l.start_date,
+    l.end_date,
+    e.first_name,
+    e.last_name,
+    t.name AS team_name
+FROM
+    Leave l
+JOIN
+    Employee e ON l.employee_id = e.id
+LEFT JOIN -- Utilisation de LEFT JOIN au cas où un employé n'aurait pas d'équipe (cf. Q1)
+    Team t ON e.team_id = t.id
+ORDER BY
+    l.start_date;
